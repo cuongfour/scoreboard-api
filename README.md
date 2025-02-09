@@ -33,6 +33,22 @@ PORT=3000
 JWT_SECRET=your_secret_key
 DATABASE_URL=postgres://username:password@localhost:5432/crud_db
 ```
+Migrate database
+```PostgreSQL
+CREATE DATABASE crud_db;
+
+CREATE TABLE scores (
+  user_id SERIAL PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  score INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO public.scores (user_id, username, score)
+VALUES (1, 'cuong', 100),
+       (2, 'tuan', 85),
+       (3, 'hoang', 92);
+```
 
 ## Running the Server
 Start the API server with:
